@@ -1,15 +1,15 @@
 version: 2
 updates:
   - package-ecosystem: npm
-    directory: "/"
+    directory: /
     schedule:
       interval: weekly
-      time: "09:00"
-      timezone: "Europe/London"
+      time: '09:00'
+      timezone: Europe/London
     commit-message:
-      prefix: "⬆️"
-      include: "scope"
+      prefix: ⬆️
+      include: scope
     open-pull-requests-limit: 5
     labels:
-      - "dependencies"
+      - dependencies
     versioning-strategy: increase
