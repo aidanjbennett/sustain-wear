@@ -19,7 +19,7 @@
     "@eslint-react/eslint-plugin": "^2.1.1",
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
-    "eslint": "^9.37.0",
+    "eslint": "^9.38.0",
     "eslint-config-next": "15.5.6",
     "eslint-plugin-react-refresh": "^0.4.23",
     "tailwindcss": "^4"
