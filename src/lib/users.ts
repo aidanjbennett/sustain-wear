@@ -1,7 +1,7 @@
 import { db } from './prisma'
 
 export async function getUsers() {
-  const users = db.user.findMany()
+  const users = await db.user.findMany()
 
-  return await users
+  return users
 }

@@ -1,12 +1,11 @@
-import antfu from '@antfu/eslint-config'
+import { FlatCompat } from '@eslint/eslintrc'
 
-export default antfu({
-  react: true,
-  typescript: false,
-  stylistic: {
-    indent: 2,
-  },
-  rules: {
-    'no-console': 'off',
-  },
+const compat = new FlatCompat({
+  baseDirectory: import.meta.dirname,
 })
+
+const eslintConfig = [
+  ...compat.extends('next/core-web-vitals', 'next/typescript'),
+]
+
+export default eslintConfig
