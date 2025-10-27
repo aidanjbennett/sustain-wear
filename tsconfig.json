@@ -33,7 +33,10 @@
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "src/app/dashboard/page.jsx",
+    "src/app/signup/page.jsx",
+    "src/components/SignupForm.jsx"
   ],
   "exclude": [
     "node_modules"

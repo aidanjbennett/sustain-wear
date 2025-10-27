@@ -1,3 +1,4 @@
+import SignupForm from '@/components/SignupForm'
 import { getUsers } from '@/lib/users'
 
 export default async function Signup() {
@@ -6,7 +7,8 @@ export default async function Signup() {
   return (
     <div>
       <h1>Signup</h1>
-      <p>{users.length}</p>
+      <h2>Users {users.length}</h2>
+      <SignupForm />
     </div>
   )
 }
