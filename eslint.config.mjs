@@ -1,12 +1,8 @@
-import antfu from '@antfu/eslint-config'
+import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
+import nextTypescript from "eslint-config-next/typescript";
 
-export default antfu({
-  react: true,
-  typescript: false,
-  stylistic: {
-    indent: 2,
-  },
-  rules: {
-    'no-console': 'off',
-  },
-})
+const eslintConfig = [...nextCoreWebVitals, ...nextTypescript, {
+  ignores: ["node_modules/**", ".next/**", "out/**", "build/**", "next-env.d.ts"]
+}]
+
+export default eslintConfig
