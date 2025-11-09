@@ -2,6 +2,7 @@
 import { authClient } from "@/lib/auth-client"
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { passwordSchema } from "@/lib/schemas";
 
 export default function SignupForm() {
   const router = useRouter();
@@ -30,11 +31,19 @@ export default function SignupForm() {
       return;
     }
 
-    // Validate password length
-    if (formData.password.length < 8) {
-      setError("Password must be at least 8 characters");
+    const result = passwordSchema.safeParse(formData.password)
+
+    if (!result.success) {
+      // Grab the first error message from Zod
+      setError(result.error.issues[0].message);
       return;
     }
+
+    // // Validate password length
+    // if (formData.password.length < 8) {
+    //   setError("Password must be at least 8 characters");
+    //   return;
+    // }
 
     setLoading(true);
 
