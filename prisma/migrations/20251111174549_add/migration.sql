@@ -1,0 +1,19 @@
+-- RedefineTables
+PRAGMA defer_foreign_keys=ON;
+PRAGMA foreign_keys=OFF;
+CREATE TABLE "new_users" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "name" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "phone_number" TEXT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL,
+    "role" TEXT NOT NULL DEFAULT 'Donor',
+    "emailVerified" BOOLEAN NOT NULL DEFAULT false,
+    "image" TEXT
+);
+INSERT INTO "new_users" ("createdAt", "email", "emailVerified", "id", "image", "name", "phone_number", "updatedAt") SELECT "createdAt", "email", "emailVerified", "id", "image", "name", "phone_number", "updatedAt" FROM "users";
+DROP TABLE "users";
+ALTER TABLE "new_users" RENAME TO "users";
+PRAGMA foreign_keys=ON;
+PRAGMA defer_foreign_keys=OFF;
