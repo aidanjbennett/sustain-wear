@@ -1,4 +1,5 @@
 'use client'
+import Navbar from "@/components/Navbar";
 import { authClient } from "@/lib/auth-client"
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -70,54 +71,74 @@ export default function SignupForm() {
     }
   };
 
-  return (
-    <form onSubmit={handleSubmit}>
-      {error && (
-        <div style={{ color: 'red', marginBottom: '1rem' }}>
-          {error}
-        </div>
-      )}
+   return (
+    <>
+    <Navbar/>
+    <body className="bg-gray-100">
+    <div className="w-full max-w-xs mx-auto flex items-center justify-center min-h-screen ">
+      <form
+        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        onSubmit={handleSubmit}
+      >
+        {error && (
+          <div style={{ color: 'red', marginBottom: '1rem' }}>
+            {error}
+          </div>
+        )}
 
-      <label htmlFor="name">Name</label>
-      <input
-        id="name"
-        type="text"
-        value={formData.name}
-        onChange={handleChange}
-        required
-      />
+        <p className="font-bold text-center text-2xl mb-6">Welcome!</p>
 
-      <label htmlFor="email">Email</label>
-      <input
-        id="email"
-        type="email"
-        value={formData.email}
-        onChange={handleChange}
-        required
-      />
+        <input
+          id="name"
+          type="text"
+          placeholder="Name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+          className="border rounded w-full py-2 px-3 mb-6 bg-gray-100"
+        />
 
-      <label htmlFor="password">Password</label>
-      <input
-        id="password"
-        type="password"
-        value={formData.password}
-        onChange={handleChange}
-        required
-        minLength={8}
-      />
+        <input
+          id="email"
+          type="email"
+          placeholder="Email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+          className="border rounded w-full py-2 px-3 mb-6 bg-gray-100"
+        />
 
-      <label htmlFor="confirmPassword">Confirm Password</label>
-      <input
-        id="confirmPassword"
-        type="password"
-        value={formData.confirmPassword}
-        onChange={handleChange}
-        required
-      />
+        <input
+          id="password"
+          type="password"
+          placeholder="Password"
+          value={formData.password}
+          onChange={handleChange}
+          required
+          minLength={8}
+          className="border rounded w-full py-2 px-3 mb-6 bg-gray-100"
+        />
 
-      <button type="submit" disabled={loading}>
-        {loading ? "Signing up..." : "Signup"}
-      </button>
-    </form>
-  )
+        <input
+          id="confirmPassword"
+          type="password"
+          placeholder="Confirm Password"
+          value={formData.confirmPassword}
+          onChange={handleChange}
+          required
+          className="border rounded w-full py-2 px-3 mb-6 bg-gray-100"
+        />
+
+        <button
+          type="submit"
+          disabled={loading}
+          className="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded w-full"
+        >
+          {loading ? 'Signing up...' : 'Signup'}
+        </button>
+      </form>
+    </div>
+    </body>
+    </>
+  );
 }
