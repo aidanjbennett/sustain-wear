@@ -36,6 +36,7 @@ export async function addDonation(formData) {
       size,
       brand,
       colour,
+      condition,
     },
   });
 

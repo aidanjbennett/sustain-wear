@@ -59,12 +59,11 @@ export default async function Dashboard() {
         />
 
         <label htmlFor="condition">Condition of clothing</label>
-        <input
-          id="condition"
-          name="condition"
-          type="text"
-          required
-        />
+        <select name="condition" id="condition">
+          <option value="fair">Fair</option>
+          <option value="good">Good</option>
+          <option value="excellent">Excellent</option>
+        </select>
         <button type="submit">
           Add Item
         </button>
@@ -74,8 +73,8 @@ export default async function Dashboard() {
         <ul>
           {donations.map((donation) => (
             <li key={donation.id}>
-              <strong>{donation.type}</strong> – {donation.brand} (
-              {donation.size}, {donation.colour})
+              {donation.type} {donation.brand}
+              {donation.size}, {donation.colour} {donation.condition ?? 'N/A'}
             </li>
           ))}
         </ul>
