@@ -5,6 +5,7 @@ import { headers, cookies } from "next/headers";
 import { revalidatePath } from "next/cache";
 import { db } from "@/lib/prisma";
 import { redirect } from "next/navigation";
+import { donationFormSchema } from "@/lib/schemas";
 
 export async function addDonation(formData) {
 
@@ -19,14 +20,20 @@ export async function addDonation(formData) {
 
   const userId = session.user.id;
 
-  const type = formData.get("type");
-  const size = formData.get("size");
-  const brand = formData.get("brand");
-  const colour = formData.get("colour");
-  const condition = formData.get("condition")
+  const rawData = {
+    type: formData.get("type"),
+    size: formData.get("size"),
+    brand: formData.get("brand"),
+    colour: formData.get("colour"),
+    condition: formData.get("condition"),
+  };
 
-  if (!type || !size || !brand || !colour || !condition) {
-    throw new Error("All fields are required");
+  const result = donationFormSchema.safeParse(rawData);
+
+  if (!result.success) {
+    const error = result.error.issues[0].message;
+    console.log(error);
+    return error;
   }
 
   await db.donation.create({
