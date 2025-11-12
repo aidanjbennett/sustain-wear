@@ -1,28 +1,80 @@
-"use client";
+import { auth } from "@/lib/auth";
+import { redirect } from "next/navigation";
+import { headers, cookies } from "next/headers";
+import { db } from "@/lib/prisma";
+import { addDonation } from "./actions";
 
-import DonationForm from "@/components/DonationForm";
-import { authClient } from "@/lib/auth-client";
-import { useRouter } from "next/navigation";
+export default async function Dashboard() {
 
-export default function Dashboard() {
-  const router = useRouter();
-  const signOut = async () => {
-    await authClient.signOut({
-      fetchOptions: {
-        onSuccess: () => {
-          router.push("/login"); // redirect to login page
-          router.refresh();
-          alert("You have successfully logged out");
-        },
-      },
-    });
+  const session = await auth.api.getSession({
+    headers: await headers(),
+    cookies: await cookies(),
+  });
+
+  if (!session) {
+    redirect("/login")
   }
+
+  const userId = session.user.id
+
+  const donations = await db.donation.findMany({
+    where: { userId },
+    orderBy: { createdAt: "desc" },
+  });
 
   return (
     <div>
-      <h1>Dashboard</h1>
-      <DonationForm />
-      <button onClick={signOut}>Log Out</button>
+      <h1>Dashboard {userId}</h1>
+      <form action={addDonation}>
+        <label htmlFor="type">Type of clothing</label>
+        <input
+          id="type"
+          name="type"
+          type="text"
+          required
+        />
+
+        <label htmlFor="size">Size of clothing</label>
+        <input
+          id="size"
+          name="size"
+          type="text"
+          required
+        />
+
+        <label htmlFor="brand">Brand of clothing</label>
+        <input
+          id="brand"
+          name="brand"
+          type="text"
+          required
+        />
+
+        <label htmlFor="colour">Colour of clothing</label>
+        <input
+          id="colour"
+          name="colour"
+          type="text"
+          required
+        />
+
+        <button type="submit">
+          Add Item
+        </button>
+      </form>
+
+      {donations.length > 0 ? (
+        <ul>
+          {donations.map((donation) => (
+            <li key={donation.id}>
+              <strong>{donation.type}</strong> – {donation.brand} (
+              {donation.size}, {donation.colour})
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>No donations yet.</p>
+      )}
     </div>
   )
 }
