@@ -58,6 +58,13 @@ export default async function Dashboard() {
           required
         />
 
+        <label htmlFor="condition">Condition of clothing</label>
+        <input
+          id="condition"
+          name="condition"
+          type="text"
+          required
+        />
         <button type="submit">
           Add Item
         </button>

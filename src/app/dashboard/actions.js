@@ -23,8 +23,9 @@ export async function addDonation(formData) {
   const size = formData.get("size");
   const brand = formData.get("brand");
   const colour = formData.get("colour");
+  const condition = formData.get("condition")
 
-  if (!type || !size || !brand || !colour) {
+  if (!type || !size || !brand || !colour || !condition) {
     throw new Error("All fields are required");
   }
 
