@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { headers, cookies } from "next/headers";
 import { addDonation } from "./actions";
 
-export default async function Dashboard() {
+export default async function Donate() {
 
   const session = await auth.api.getSession({
     headers: await headers(),
