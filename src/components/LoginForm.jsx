@@ -39,7 +39,7 @@ export default function LoginForm() {
             }
 
             // Login successful - redirect
-            router.push("/dashboard");
+            router.push("/donor/dashboard");
             router.refresh();
         } catch (err) {
             setError("An unexpected error occurred");
