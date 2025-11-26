@@ -83,6 +83,7 @@ model Donation {
   id Int @id @default(autoincrement())
 
   type      String
+  category  String?
   size      String
   brand     String
   colour    String

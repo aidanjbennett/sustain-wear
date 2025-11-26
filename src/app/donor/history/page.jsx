@@ -36,6 +36,7 @@ export default async function DonationHistoryPage() {
           <table className="min-w-full text-sm">
             <thead className="bg-gray-100">
               <tr>
+                <th className="px-4 py-2 text-left">Category of Clothing</th>
                 <th className="px-4 py-2 text-left">Type of Clothing</th>
                 <th className="px-4 py-2 text-left">Size</th>
                 <th className="px-4 py-2 text-left">Brand</th>
@@ -47,6 +48,8 @@ export default async function DonationHistoryPage() {
             <tbody>
               {donations.map((donation) => (
                 <tr key={donation.id} className="border-t">
+                  <td className="px-4 py-2">{donation.category}</td>
+
                   <td className="px-4 py-2">{donation.type}</td>
                   <td className="px-4 py-2">
                     {donation.size && donation.size.trim()
