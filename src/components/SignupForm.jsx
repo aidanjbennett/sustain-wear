@@ -68,7 +68,7 @@ export default function SignupForm() {
 
   return (
     <>
-      <div className="h-screen flex items-center justify-center">
+      <div className="h-screen flex items-center justify-center bg-gray-100">
         <form
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-full max-w-xs"
           onSubmit={handleSubmit}
@@ -80,11 +80,13 @@ export default function SignupForm() {
           )}
 
           <p className="font-bold text-center text-2xl mb-6">Welcome!</p>
+          <p className="text-center text-s mb-8 text-gray-600">Sign up to Sustain Wear to manage your profile and settings.</p>
+
 
           <input
             id="name"
             type="text"
-            placeholder="Name"
+            placeholder="Your full name"
             value={formData.name}
             onChange={handleChange}
             required
@@ -94,7 +96,7 @@ export default function SignupForm() {
           <input
             id="email"
             type="email"
-            placeholder="Email"
+            placeholder="you@example.com"
             value={formData.email}
             onChange={handleChange}
             required
@@ -104,7 +106,7 @@ export default function SignupForm() {
           <input
             id="password"
             type="password"
-            placeholder="Password"
+            placeholder="Create a strong password"
             value={formData.password}
             onChange={handleChange}
             required
@@ -129,6 +131,7 @@ export default function SignupForm() {
           >
             {loading ? 'Signing up...' : 'Signup'}
           </button>
+          <a href="/login" className="text-xs flex items-center justify-center my-4 text-green-700">Already a member? Login here.</a>
         </form>
       </div>
     </>
