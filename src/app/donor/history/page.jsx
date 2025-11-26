@@ -49,7 +49,6 @@ export default async function DonationHistoryPage() {
               {donations.map((donation) => (
                 <tr key={donation.id} className="border-t">
                   <td className="px-4 py-2">{donation.category}</td>
-
                   <td className="px-4 py-2">{donation.type}</td>
                   <td className="px-4 py-2">
                     {donation.size && donation.size.trim()
