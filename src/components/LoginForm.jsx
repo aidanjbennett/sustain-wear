@@ -49,35 +49,46 @@ export default function LoginForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <div className="h-screen flex items-center justify-center bg-gray-100">
+        <form onSubmit={handleSubmit}
+         className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-full max-w-xs">
             {error && (
                 <div style={{ color: 'red', marginBottom: '1rem' }}>
                     {error}
                 </div>
             )}
 
-            <label htmlFor="email">Email</label>
+<p className="font-bold text-center text-2xl mb-6">Welcome back!</p>
+
+  
             <input
                 id="email"
                 type="email"
+                placeholder="Your email here"
                 value={formData.email}
                 onChange={handleChange}
                 required
+                className="border rounded w-full py-2 px-3 mb-6 bg-gray-100"
             />
 
-            <label htmlFor="password">Password</label>
+           
             <input
                 id="password"
                 type="password"
+                placeholder="Your password here"
                 value={formData.password}
                 onChange={handleChange}
                 required
                 minLength={8}
+                className="border rounded w-full py-2 px-3 mb-6 bg-gray-100"
             />
 
-            <button type="submit" disabled={loading}>
+            <button type="submit" disabled={loading}
+            className="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded w-full">
                 {loading ? "Logging in..." : "Log in"}
             </button>
+            <a href="/signup" className="text-xs flex items-center justify-center my-4 text-green-700">Not a member yet? Sign up here.</a>
         </form>
+        </div>
     )
 }
