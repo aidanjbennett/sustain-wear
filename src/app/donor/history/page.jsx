@@ -3,8 +3,6 @@ import { headers } from "next/headers";
 import { db } from "@/lib/prisma";
 import { auth } from "@/lib/auth";
 
-export const dynamic = "force-dynamic"; // optional, ensures fresh data
-
 export default async function DonationHistoryPage() {
 
   const session = await auth.api.getSession({
@@ -20,6 +18,9 @@ export default async function DonationHistoryPage() {
 
   const donations = await db.donation.findMany({
     where: { userId },
+    orderBy: {
+      createdAt: 'desc'
+    }
   });
 
   return (
@@ -46,7 +47,7 @@ export default async function DonationHistoryPage() {
             <tbody>
               {donations.map((donation) => (
                 <tr key={donation.id} className="border-t">
-                  <td className="px-4 py-2">{donation.clothingType}</td>
+                  <td className="px-4 py-2">{donation.type}</td>
                   <td className="px-4 py-2">
                     {donation.size && donation.size.trim()
                       ? donation.size
@@ -64,7 +65,7 @@ export default async function DonationHistoryPage() {
                   </td>
                   <td className="px-4 py-2">{donation.condition}</td>
                   <td className="px-4 py-2">
-                    {new Date(donation.submittedAt).toLocaleString()}
+                    {new Date(donation.createdAt).toLocaleString()}
                   </td>
                 </tr>
               ))}

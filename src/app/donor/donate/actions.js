@@ -38,12 +38,12 @@ export async function addDonation(formData) {
 
   await db.donation.create({
     data: {
-      userId,
-      type,
-      size,
-      brand,
-      colour,
-      condition,
+      userId: userId,
+      type: result.data.type,
+      size: result.data.size,
+      brand: result.data.brand,
+      colour: result.data.colour,
+      condition: result.data.condition,
     },
   });
 
