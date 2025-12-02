@@ -22,6 +22,7 @@ export async function addDonation(formData) {
 
   const rawData = {
     type: formData.get("type"),
+    category: formData.get("category"),
     size: formData.get("size"),
     brand: formData.get("brand"),
     colour: formData.get("colour"),
@@ -38,12 +39,13 @@ export async function addDonation(formData) {
 
   await db.donation.create({
     data: {
-      userId,
-      type,
-      size,
-      brand,
-      colour,
-      condition,
+      userId: userId,
+      type: result.data.type,
+      category: result.data.category,
+      size: result.data.size,
+      brand: result.data.brand,
+      colour: result.data.colour,
+      condition: result.data.condition,
     },
   });
 

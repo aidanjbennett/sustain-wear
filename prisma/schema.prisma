@@ -83,6 +83,7 @@ model Donation {
   id Int @id @default(autoincrement())
 
   type      String
+  category  String?
   size      String
   brand     String
   colour    String
@@ -90,6 +91,8 @@ model Donation {
 
   user   User?   @relation(fields: [userId], references: [id])
   userId String?
+
+  acknowledged Boolean? @default(false)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt

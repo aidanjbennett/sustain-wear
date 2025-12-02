@@ -21,6 +21,19 @@ export default async function Donate() {
         <p className="font-bold text-center text-2xl mb-4">Donate</p>
         <label className="font-bold" htmlFor="type">Type of clothing</label>
         <input 
+    <div>
+      <h1>Dashboard</h1>
+      <form action={addDonation}>
+        <label htmlFor="category">Category of clothing</label>
+        <select name="category" id="category">
+          <option value="Womens">Womens</option>
+          <option value="Mens">Mens</option>
+          <option value="Boys">Boys</option>
+          <option value="Girls">Girls</option>
+        </select>
+
+        <label htmlFor="type">Type of clothing</label>
+        <input
           id="type"
           name="type"
           type="text"

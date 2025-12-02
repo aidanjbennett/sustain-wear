@@ -1,7 +1,7 @@
 'use client'
-import { authClient } from "@/lib/auth-client"
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { loginAction } from "@/app/login/authActions";
 
 export default function LoginForm() {
     const router = useRouter();
@@ -26,21 +26,30 @@ export default function LoginForm() {
         setLoading(true);
 
         try {
-            const { data, error } = await authClient.signIn.email({
-                email: formData.email,
-                password: formData.password,
-                callbackURL: "/dashboard",
-            });
 
-            if (error) {
-                setError(error.message || "Failed to log in");
+            const res = await loginAction(formData.email, formData.password)
+
+            if (res.error) {
+                setError(res.error || "Failed to log in");
                 setLoading(false);
                 return;
             }
 
             // Login successful - redirect
-            router.push("/dashboard");
+            switch (res.role) {
+                case "Donor":
+                    router.push("/donor/dashboard");
+                    break;
+                case "Charity Staff":
+                    router.push("/charitystaff/dashboard");
+                    break;
+                case "Admin":
+                    router.push("/admin/dashboard");
+                    break;
+            }
+
             router.refresh();
+
         } catch (err) {
             setError("An unexpected error occurred");
             setLoading(false);
