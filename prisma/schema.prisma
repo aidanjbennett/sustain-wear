@@ -93,8 +93,11 @@ model Donation {
   user   User?   @relation(fields: [userId], references: [id])
   userId String?
 
-  acknowledged Boolean? @default(false)
-  accepted     Boolean?
+  acknowledged         Boolean?  @default(false)
+  accepted             Boolean?
+  rejectionReason      String?
+  charityStaffMemberId String?
+  processedAt          DateTime?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
