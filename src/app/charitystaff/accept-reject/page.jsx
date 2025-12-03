@@ -31,8 +31,6 @@ export default function ViewDonationsTable() {
 
   const charityStaffMemberId = session.data.user.id // i think this gets id not sure tho
 
-
-
   useEffect(() => {
 
     const fetchData = async () => {
