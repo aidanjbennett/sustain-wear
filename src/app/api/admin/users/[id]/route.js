@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
-import { PrismaClient } from "../../../../../generated/prisma";
+import { db } from "@/lib/prisma";
 import { auth } from "@/lib/auth";
-
-const prisma = new PrismaClient();
 
 const ALLOWED_ROLES = ["Donor", "Charity Staff", "Admin"];
 
@@ -29,7 +27,7 @@ export async function GET(req, { params }) {
 
     const userId = params.id;
 
-    const user = await prisma.user.findUnique({
+    const user = await db.user.findUnique({
       where: { id: userId },
       select: {
         id: true,
@@ -79,7 +77,7 @@ export async function POST(req, { params }) {
       );
     }
 
-    const user = await prisma.user.findUnique({
+    const user = await db.user.findUnique({
       where: { id: userId },
       select: {
         id: true,
@@ -117,7 +115,7 @@ export async function POST(req, { params }) {
       );
     }
 
-    const updatedUser = await prisma.user.update({
+    const updatedUser = await db.user.update({
       where: { id: user.id },
       data: {
         role: newRole,
@@ -128,7 +126,7 @@ export async function POST(req, { params }) {
     const userName = user.name || user.email;
     const message = `${adminName} has changed ${userName} role from ${user.role} to ${newRole}.`;
 
-    await prisma.notification.createMany({
+    await db.notification.createMany({
       data: [
         {
           userId: admin.id,

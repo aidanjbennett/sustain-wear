@@ -1,10 +1,9 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { PrismaClient } from "./../../../generated/prisma";
+import { db } from "@/lib/prisma";
 import { auth } from "@/lib/auth";
-import AdminUsersClient from "./AdminUsersClient";
+import AdminUsersClient from "@/components/AdminUsersClient";
 
-const prisma = new PrismaClient();
 const PAGE_SIZE = 30;
 
 const VALID_SORT_FIELDS = ["id", "name", "role"];
@@ -56,13 +55,13 @@ export default async function AdminUsersPage({ searchParams }) {
   let loadError = false;
 
   try {
-    totalUsers = await prisma.user.count();
+    totalUsers = await db.user.count();
 
     if (totalUsers > 0) {
       const orderBy = {};
       orderBy[sortBy] = order;
 
-      users = await prisma.user.findMany({
+      users = await db.user.findMany({
         skip: (page - 1) * PAGE_SIZE,
         take: PAGE_SIZE,
         orderBy,
