@@ -1,9 +1,6 @@
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
-import { PrismaClient } from "@/generated/prisma";
-import { customSession } from "better-auth/plugins";
-
-const prisma = new PrismaClient();
+import { db } from "./prisma";
 
 export const auth = betterAuth({
   emailAndPassword: {
@@ -11,8 +8,8 @@ export const auth = betterAuth({
     autoSignIn: false,
   },
 
-  database: prismaAdapter(prisma, {
-    provider: "sqlite", // or "mysql", "postgresql", ...etc
+  database: prismaAdapter(db, {
+    provider: "sqlite",
   }),
 
   user: {
