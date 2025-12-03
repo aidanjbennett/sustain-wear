@@ -52,8 +52,11 @@ export default function ViewDonationsTable() {
                   <td className="px-4 py-2">{donation.colour && donation.colour.trim() ? donation.colour : "-"}</td>
                   <td className="px-4 py-2">{donation.condition}</td>
                   <td className="px-4 py-2">{new Date(donation.createdAt).toLocaleString()}</td>
-                  <td><button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-green-700 rounded">
-                    Acknowledge</button></td>
+                  <td>
+                    <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-green-700 rounded">
+                      Acknowledge
+                    </button>
+                  </td>
                   {/* <td>
                     <div className="inline-flex">
                       <button className="px-4 py-2 m-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-green-700 rounded">
