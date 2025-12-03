@@ -15,62 +15,61 @@ export default async function Donate() {
   }
 
   return (
-    <div className="h-screen flex items-center justify-center">
-      <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-xl max-w-xs"
+<div className="h-screen flex items-center justify-center">
+      <form className="bg-white shadow-md rounded px-8 pt-4 pb-8 w-xl max-w-xs"
         action={addDonation}>
-        <p className="font-bold text-center text-2xl mb-4">Donate</p>
-        <h1>Dashboard</h1>
-        <label htmlFor="category">Category of clothing</label>
-        <select name="category" id="category">
+        <p className="font-semibold text-center text-xl mb-4">Donate clothing here</p>
+        <label className="font-semibold" htmlFor="category">Category of clothing:</label>
+        <select className=" px-1 mb-6 bg-gray-100" name="category" id="category">
           <option value="Womens">Womens</option>
           <option value="Mens">Mens</option>
           <option value="Boys">Boys</option>
           <option value="Girls">Girls</option>
         </select>
 
-        <label htmlFor="type">Type of clothing</label>
+        <label className="font-semibold text-m" htmlFor="type"> Type of clothing </label>
         <input
           id="type"
           name="type"
           type="text"
           required
-          className="border rounded w-full py-2 px-3 mb-6 bg-gray-100"
+          className="rounded w-full py-2 px-3 mb-6 bg-gray-100"
         />
 
-        <label className="font-bold" htmlFor="size">Size of clothing</label>
+        <label className="font-semibold text-m" htmlFor="size">Size of clothing</label>
         <input
           id="size"
           name="size"
           type="text"
           required
-          className="border rounded w-full py-2 px-3 mb-6 bg-gray-100"
+          className="rounded w-full py-2 px-3 mb-6 bg-gray-100"
         />
 
-        <label className="font-bold" htmlFor="brand">Brand of clothing</label>
+        <label className="font-semibold text-m" htmlFor="brand">Brand of clothing</label>
         <input
           id="brand"
           name="brand"
           type="text"
           required
-          className="border rounded w-full py-2 px-3 mb-6 bg-gray-100"
+          className="rounded w-full py-2 px-3 mb-6 bg-gray-100"
         />
 
-        <label className="font-bold" htmlFor="colour">Colour of clothing</label>
+        <label className="font-semibold text-m" htmlFor="colour">Colour of clothing</label>
         <input
           id="colour"
           name="colour"
           type="text"
           required
-          className="border rounded w-full mb-6 bg-gray-100"
+          className="rounded w-full mb-6 bg-gray-100"
         />
 
-        <label className="font-bold px-2 mb-4" htmlFor="condition">Condition:</label>
-        <select className="mb-4" name="condition" id="condition">
+        <label className="font-semibold text-m px-2 mb-4" htmlFor="condition">Condition:</label>
+        <select className="mb-4 rounded bg-gray-100" name="condition" id="condition">
           <option value="fair">Fair</option>
           <option value="good">Good</option>
           <option value="excellent">Excellent</option>
         </select>
-        <button className="bg-green-700 hover:bg-green-900 text-white font-bold py-2 mb-6 rounded w-full"
+        <button className="bg-green-700 hover:bg-green-900 text-white font-semibold py-2 mb-6 rounded w-full"
           type="submit">
           Submit Donation
         </button>

@@ -26,17 +26,16 @@ export default async function DonationHistoryPage() {
   return (
     <main className="max-w-4xl mx-auto px-4 py-8">
       <h1 className="text-2xl font-semibold mb-6">Donation History</h1>
-
       {donations.length === 0 ? (
         <p className="text-gray-600">
           You haven&apos;t donated any items yet.
         </p>
       ) : (
-        <div className="overflow-x-auto border rounded-lg">
+        <div className="overflow-x-auto rounded-lg">
           <table className="min-w-full text-sm">
-            <thead className="bg-gray-100">
+            <thead className="bg-white shadow-md rounded">
               <tr>
-                <th className="px-4 py-2 text-left">Category of Clothing</th>
+                <th className="px-4 py-2  text-left">Category of Clothing</th>
                 <th className="px-4 py-2 text-left">Type of Clothing</th>
                 <th className="px-4 py-2 text-left">Size</th>
                 <th className="px-4 py-2 text-left">Brand</th>
@@ -47,7 +46,7 @@ export default async function DonationHistoryPage() {
             </thead>
             <tbody>
               {donations.map((donation) => (
-                <tr key={donation.id} className="border-t">
+                <tr key={donation.id} className="bg-white">
                   <td className="px-4 py-2">{donation.category}</td>
                   <td className="px-4 py-2">{donation.type}</td>
                   <td className="px-4 py-2">
