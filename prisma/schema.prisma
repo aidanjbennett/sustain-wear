@@ -94,6 +94,7 @@ model Donation {
   userId String?
 
   acknowledged Boolean? @default(false)
+  accepted     Boolean?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
