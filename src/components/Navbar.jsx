@@ -14,13 +14,10 @@ export default function Navbar() {
             <Link href='/donor/donate' className='text-xl font-semibold whitespace-nowrap dark:text-white py-2 px-7 hover:text-gray-200'>Donate</Link>
           </ul>
           <ul>
-            <Link href='/donor/history' className='text-xl font-semibold whitespace-nowrap dark:text-white py-2 px-7 hover:text-gray-200'>Donation History</Link>
+            <Link href='/donor/history' className='text-xl font-semibold whitespace-nowrap dark:text-white py-2 px-7 hover:text-gray-200'>History</Link>
           </ul>
           <ul>
-            <a href='' className='text-xl font-semibold whitespace-nowrap dark:text-white py-2 px-7 hover:text-gray-200'>test link</a>
-          </ul>
-          <ul>
-            <a href='' className='text-xl font-semibold whitespace-nowrap dark:text-white py-2 px-7 hover:text-gray-200'>test link</a>
+            <Link href='/donor/dashboard' className='text-xl font-semibold whitespace-nowrap dark:text-white py-2 px-7 hover:text-gray-200'>Dashboard</Link>
           </ul>
         </div>
       </div>

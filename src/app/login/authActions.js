@@ -1,22 +1,24 @@
 "use server";
 
 import { db } from "@/lib/prisma";
-import { authClient } from "@/lib/auth-client";
+import { auth } from "@/lib/auth";
 
 export async function loginAction(email, password) {
-    const { data, error } = await authClient.signIn.email({
-        email,
-        password,
+    const data = await auth.api.signInEmail({
+        body: {
+            email,
+            password
+        }
     });
 
-    if (error) {
-        return { error: error.message };
-    }
+    // if (error) {
+    //     return { error: error.message };
+    // }
 
     const authUser = data.user;
 
     const dbUser = await db.user.findUnique({
-        where: {id: authUser.id}
+        where: { id: authUser.id }
     });
 
     if (!dbUser) {

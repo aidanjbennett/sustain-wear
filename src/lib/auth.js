@@ -1,15 +1,28 @@
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
-import { PrismaClient } from "@/generated/prisma";
-
-const prisma = new PrismaClient();
+import { db } from "./prisma";
+import { nextCookies } from "better-auth/next-js";
 
 export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
     autoSignIn: false,
   },
-  database: prismaAdapter(prisma, {
-    provider: "sqlite", // or "mysql", "postgresql", ...etc
+
+  database: prismaAdapter(db, {
+    provider: "sqlite",
   }),
+
+  user: {
+    additionalFields: {
+      role: {
+        type: "string",
+        required: false,
+        defaultValue: "Donor",
+        input: false,
+      },
+    },
+  },
+
+  plugins: [nextCookies]
 });

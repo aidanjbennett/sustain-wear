@@ -24,12 +24,13 @@ export default function Home() {
             <li className="text-center my-4 ">Ablity to see donation history</li>
           </ul>
           <div className="flex justify-center mt-20 w-40">
-      <button type="signup" className="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded w-full">
-           Sign up today! </button>
-      </div>
+            <Link href="/signup" className="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded w-full">
+              Sign up today!
+            </Link>
+          </div>
         </div>
       </div>
-      
+
     </main>
   )
 }
