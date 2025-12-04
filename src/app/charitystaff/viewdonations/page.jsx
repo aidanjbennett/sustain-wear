@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { getUnacknowledgedDonations } from "./viewDonationsActions";
+import { getAcknowledgedDonations } from "./acknowledgeDonationActions";
 
 export default function ViewDonationsTable() {
 
@@ -10,14 +11,14 @@ export default function ViewDonationsTable() {
   const [totalPages, setTotalPages] = useState(1);
   const limit = 10;
 
-    useEffect(() => {
-      const fetchData = async () => {
-        const res = await getUnacknowledgedDonations(page, limit);
-        setDonations(res.donations);
-        setTotalPages(res.totalPages);
-      };
-      fetchData();
-    }, [page]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await getUnacknowledgedDonations(page, limit);
+      setDonations(res.donations);
+      setTotalPages(res.totalPages);
+    };
+    fetchData();
+  }, [page]);
 
   return (
     <main className="max-w-4xl mx-auto px-4 py-8">
@@ -52,7 +53,8 @@ export default function ViewDonationsTable() {
                   <td className="px-4 py-2">{donation.colour && donation.colour.trim() ? donation.colour : "-"}</td>
                   <td className="px-4 py-2">{donation.condition}</td>
                   <td className="px-4 py-2">{new Date(donation.createdAt).toLocaleString()}</td>
-                  <td><button className="px-4 py-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-green-700 rounded">
+                  <td><button onClick={async () => { await getAcknowledgedDonations(donation.id) }}
+                    className="px-4 py-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-green-700 rounded">
                     Acknowledge</button></td>
                   {/* <td>
                     <div className="inline-flex">
@@ -69,16 +71,16 @@ export default function ViewDonationsTable() {
         </div>
       )}
       <div className="flex justify-center">
-        <button 
-        disabled={page === 1}
-        onClick={() => setPage(prev => prev - 1)}
-        className="px-4 py-2 m-5 align-center bg-green hover:bg-green-100 disabled:opacity-50 disabled:cursor-not-allowed text-gray-800 font-semibold px-4 py-2 border border-black-400 rounded shadow">
+        <button
+          disabled={page === 1}
+          onClick={() => setPage(prev => prev - 1)}
+          className="px-4 py-2 m-5 align-center bg-green hover:bg-green-100 disabled:opacity-50 disabled:cursor-not-allowed text-gray-800 font-semibold px-4 py-2 border border-black-400 rounded shadow">
           Previous
         </button>
-        <button 
-        disabled={page === totalPages}
-        onClick={() => setPage(prev => prev + 1)}
-        className="px-4 py-2 m-5 align-center bg-green hover:bg-green-100 disabled:opacity-50 disabled:cursor-not-allowed text-gray-800 font-semibold px-4 py-2 border border-black-400 rounded shadow">
+        <button
+          disabled={page === totalPages}
+          onClick={() => setPage(prev => prev + 1)}
+          className="px-4 py-2 m-5 align-center bg-green hover:bg-green-100 disabled:opacity-50 disabled:cursor-not-allowed text-gray-800 font-semibold px-4 py-2 border border-black-400 rounded shadow">
           Next
         </button>
       </div>
