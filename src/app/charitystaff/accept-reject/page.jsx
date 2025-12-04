@@ -6,9 +6,9 @@ import {
   acceptDonation, rejectDonation
 } from "./action";
 import { authClient } from "@/lib/auth-client";
-import { useRouter } from "next/router";
+// import ProtectedRoute from "@/components/ProtectedRoute";
 
-export default function ViewDonationsTable() {
+export default function AcceptAndRejectPage() {
   const [donations, setDonations] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -18,21 +18,10 @@ export default function ViewDonationsTable() {
   const [rejectionReason, setRejectionReason] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
 
-  const router = useRouter()
-
   const limit = 10;
-
-  const session = authClient.useSession()
-
-  if (!session.data.user) {
-    router.push("/login")
-    return
-  }
-
-  const charityStaffMemberId = session.data.user.id // i think this gets id not sure tho
+  const { data } = authClient.useSession()
 
   useEffect(() => {
-
     const fetchData = async () => {
       const res = await getAcknowledgedDonations(page, limit);
       setDonations(res.donations);
@@ -41,6 +30,8 @@ export default function ViewDonationsTable() {
 
     fetchData();
   }, [page]);
+
+  const charityStaffMemberId = data?.user.id
 
   const handleAccept = async (donationId) => {
     setIsProcessing(true);
@@ -94,6 +85,7 @@ export default function ViewDonationsTable() {
   };
 
   return (
+    // <ProtectedRoute >
     <main className="max-w-4xl mx-auto px-4 py-8">
       <h1 className="text-2xl font-semibold mb-6">Accept / Reject Donations</h1>
 
@@ -200,5 +192,6 @@ export default function ViewDonationsTable() {
         </div>
       )}
     </main>
+    // </ProtectedRoute>
   );
 }
