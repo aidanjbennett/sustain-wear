@@ -67,7 +67,10 @@ export async function POST(req, { params }) {
     }
 
     const admin = session.user;
-    const userId = params.id;
+
+    const p = await params
+
+    const userId = p.id;
 
     const body = await req.json();
     const newRole = body.role;
