@@ -25,7 +25,9 @@ export async function GET(req, { params }) {
       );
     }
 
-    const userId = params.id;
+    const p = await params
+
+    const userId = p.id;
 
     const user = await db.user.findUnique({
       where: { id: userId },

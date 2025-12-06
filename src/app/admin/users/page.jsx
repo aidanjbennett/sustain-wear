@@ -46,9 +46,15 @@ export default async function AdminUsersPage({ searchParams }) {
     );
   }
 
-  const page = parsePage(await searchParams?.page);
-  const sortBy = parseSortField(await searchParams?.sortBy);
-  const order = parseSortOrder(await searchParams?.order);
+  const params = await searchParams
+
+  const pageParam = params?.page
+  const sortByParam = params?.sortBy
+  const orderParam = params?.order
+
+  const page = parsePage(pageParam);
+  const sortBy = parseSortField(sortByParam);
+  const order = parseSortOrder(orderParam);
 
   let totalUsers = 0;
   let users = [];
