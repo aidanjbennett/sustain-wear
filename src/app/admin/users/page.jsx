@@ -19,7 +19,7 @@ function parseSortOrder(value) {
 
 function parsePage(value) {
   const n = Number(value);
-  if (!Number.isFinite(n)(n < 1)) return 1;
+  if (!Number.isFinite(n) || n < 1) return 1;
   return Math.floor(n);
 }
 
