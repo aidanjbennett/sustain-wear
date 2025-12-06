@@ -9,7 +9,7 @@ async function getAdminSession(req) {
     headers: req.headers,
   });
 
-  if (!session.user.role !== "Admin") {
+  if (!session || session.user.role !== "Admin") {
     return null;
   }
   return session;
