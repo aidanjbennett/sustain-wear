@@ -1,10 +1,7 @@
 import ProtectedPage from "@/components/ProtectedRoute";
 import { db } from "@/lib/prisma";
-import { unstable_noStore as noStore } from "next/cache";
 
 export default async function CharityStaffDashboard() {
-
-  noStore()
 
   const amountOfDonations = await db.donation.count()
   const amountOfAcceptedDonations = await db.donation.count({
@@ -33,7 +30,7 @@ export default async function CharityStaffDashboard() {
     where: {
       createdAt: {
         // eslint-disable-next-line react-hooks/purity
-        gte: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000), // last 30 days
+        gte: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000),
       },
     },
   });

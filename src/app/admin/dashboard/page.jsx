@@ -35,6 +35,34 @@ export default async function AdminDashboard() {
     },
   });
 
+  const weeklyDonationCount = await db.donation.count({
+    where: {
+      createdAt: {
+        // eslint-disable-next-line react-hooks/purity
+        gte: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000),
+      },
+    },
+  });
+
+
+  const monthlyDonationCount = await db.donation.count({
+    where: {
+      createdAt: {
+        // eslint-disable-next-line react-hooks/purity
+        gte: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000), // last 30 days
+      },
+    },
+  });
+
+  const yearlyDonationCount = await db.donation.count({
+    where: {
+      createdAt: {
+        // eslint-disable-next-line react-hooks/purity
+        gte: new Date(Date.now() - 365 * 24 * 60 * 60 * 1000),
+      },
+    },
+  });
+
   return (
     <ProtectedPage>
       <div className="min-h-screen bg-gray-50 p-8">
@@ -69,6 +97,21 @@ export default async function AdminDashboard() {
           <div className="bg-white rounded-2xl shadow p-6 border border-gray-200">
             <h2 className="text-lg font-semibold mb-2">Rejected Donations</h2>
             <p className="text-3xl font-bold text-red-600">{amountOfRejectedDonations}</p>
+          </div>
+
+          <div className="bg-white rounded-2xl shadow p-6 border border-gray-200">
+            <h2 className="text-lg font-semibold mb-2">Weekly Donations</h2>
+            <p className="text-3xl font-bold text-blue-600">{weeklyDonationCount}</p>
+          </div>
+
+          <div className="bg-white rounded-2xl shadow p-6 border border-gray-200">
+            <h2 className="text-lg font-semibold mb-2">Monthly Donations</h2>
+            <p className="text-3xl font-bold text-blue-600">{monthlyDonationCount}</p>
+          </div>
+
+          <div className="bg-white rounded-2xl shadow p-6 border border-gray-200">
+            <h2 className="text-lg font-semibold mb-2">Yearly Donations</h2>
+            <p className="text-3xl font-bold text-blue-600">{yearlyDonationCount}</p>
           </div>
         </div>
       </div>
