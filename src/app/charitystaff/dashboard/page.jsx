@@ -1,5 +1,14 @@
-export default function CharityStaffDashboard() {
+import ProtectedPage from "@/components/ProtectedRoute";
+import { db } from "@/lib/prisma";
+
+export default async function CharityStaffDashboard() {
+
+  const amountOfDonations = await db.donation.count()
+
   return (
-    <div>Charity Staff Dashboard</div>
+    <ProtectedPage>
+      <h1>Charity Staff Dashboard</h1>
+
+    </ProtectedPage>
   )
 }

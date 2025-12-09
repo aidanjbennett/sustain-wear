@@ -15,7 +15,7 @@ export default async function Donate() {
   }
 
   return (
-<div className="h-screen flex items-center justify-center">
+    <div className="h-screen flex items-center justify-center">
       <form className="bg-white shadow-md rounded px-8 pt-4 pb-8 w-xl max-w-xs"
         action={addDonation}>
         <p className="font-semibold text-center text-xl mb-4">Donate clothing here</p>
