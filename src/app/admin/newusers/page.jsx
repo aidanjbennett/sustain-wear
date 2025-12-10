@@ -19,7 +19,7 @@ function parseSortOrder(value) {
 
 function parsePage(value) {
   const n = Number(value);
-  if (!Number.isFinite(n)(n < 1)) return 1;
+  if (!Number.isFinite(n) || n < 1) return 1;
   return Math.floor(n);
 }
 
@@ -46,9 +46,15 @@ export default async function AdminUsersPage({ searchParams }) {
     );
   }
 
-  const page = parsePage(searchParams?.page);
-  const sortBy = parseSortField(searchParams?.sortBy);
-  const order = parseSortOrder(searchParams?.order);
+  const params = await searchParams
+
+  const pageParam = params?.page
+  const sortByParam = params?.sortBy
+  const orderParam = params?.order
+
+  const page = parsePage(pageParam);
+  const sortBy = parseSortField(sortByParam);
+  const order = parseSortOrder(orderParam);
 
   let totalUsers = 0;
   let users = [];

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { getUnacknowledgedDonations } from "./viewDonationsActions";
+import { getAcknowledgedDonations } from "./acknowledgeDonationActions";
 
 export default function ViewDonationsTable() {
 
@@ -53,7 +54,9 @@ export default function ViewDonationsTable() {
                   <td className="px-4 py-2">{donation.condition}</td>
                   <td className="px-4 py-2">{new Date(donation.createdAt).toLocaleString()}</td>
                   <td>
-                    <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-green-700 rounded">
+                    <button 
+                    onClick={async () => {await getAcknowledgedDonations(donation.id)}}
+                    className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-green-700 rounded">
                       Acknowledge
                     </button>
                   </td>

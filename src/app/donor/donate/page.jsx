@@ -15,10 +15,8 @@ export default async function Donate() {
   }
 
   return (
-    <main className="max-w-4xl mx-auto px-4 py-8">
-    <h1 className="text-2xl font-semibold mb-6">Donate Clothing Here</h1>
-<div className="flex items-center justify-center">
-      <form className="bg-white shadow-md rounded px-8 pt-4 pb-8 w-2xl max-w-2xl"
+    <div className="h-screen flex items-center justify-center">
+      <form className="bg-white shadow-md rounded px-8 pt-4 pb-8 w-xl max-w-xs"
         action={addDonation}>
           <div className="flex">
         <label className="font-semibold" htmlFor="category">Category of clothing:</label>

@@ -1,6 +1,7 @@
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { db } from "./prisma";
+import { nextCookies } from "better-auth/next-js";
 
 export const auth = betterAuth({
   emailAndPassword: {
@@ -22,4 +23,7 @@ export const auth = betterAuth({
       },
     },
   },
+
+  trustedOrigins: ["http://localhost:3000"],
+  plugins: [nextCookies()]
 });

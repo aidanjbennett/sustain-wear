@@ -4,7 +4,7 @@ import { db } from "@/lib/prisma";
 
 export async function getUnacknowledgedDonations(page = 1, limit = 10) {
 
-    const skip = (page - 1) * limit
+  const skip = (page - 1) * limit
 
   const donations = await db.donation.findMany({
     include: { user: true },
@@ -16,8 +16,8 @@ export async function getUnacknowledgedDonations(page = 1, limit = 10) {
 
   const total = await db.donation.count({
     where: { acknowledged: false }
-    })
-  
+  })
+
   return {
     donations,
     total,

@@ -9,7 +9,6 @@ export async function getAcknowledgedDonations(page = 1, limit = 10) {
     include: { user: true },
     where: {
       acknowledged: true,
-      status: "Acknowledged"
     },
     orderBy: { createdAt: 'desc' },
     skip,

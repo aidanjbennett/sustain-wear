@@ -9,7 +9,7 @@ async function getAdminSession(req) {
     headers: req.headers,
   });
 
-  if (!session.user.role !== "Admin") {
+  if (!session || session.user.role !== "Admin") {
     return null;
   }
   return session;
@@ -25,7 +25,9 @@ export async function GET(req, { params }) {
       );
     }
 
-    const userId = params.id;
+    const p = await params
+
+    const userId = p.id;
 
     const user = await db.user.findUnique({
       where: { id: userId },
@@ -65,7 +67,10 @@ export async function POST(req, { params }) {
     }
 
     const admin = session.user;
-    const userId = params.id;
+
+    const p = await params
+
+    const userId = p.id;
 
     const body = await req.json();
     const newRole = body.role;
