@@ -1,5 +1,5 @@
 import AdminNavbar from '@/components/AdminNavbar'
-import './globals.css'
+import '@/app/globals.css'
 
 export const metadata = {
   title: 'SustainWear',

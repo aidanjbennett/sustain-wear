@@ -18,14 +18,14 @@ export default async function Donate() {
     <div className="h-screen flex items-center justify-center">
       <form className="bg-white shadow-md rounded px-8 pt-4 pb-8 w-xl max-w-xs"
         action={addDonation}>
-          <div className="flex">
-        <label className="font-semibold" htmlFor="category">Category of clothing:</label>
-        <select className=" px-2 mb-6 bg-gray-100" name="category" id="category">
-          <option value="Womens">Womens</option>
-          <option value="Mens">Mens</option>
-          <option value="Boys">Boys</option>
-          <option value="Girls">Girls</option>
-        </select>
+        <div className="flex">
+          <label className="font-semibold" htmlFor="category">Category of clothing:</label>
+          <select className=" px-2 mb-6 bg-gray-100" name="category" id="category">
+            <option value="Womens">Womens</option>
+            <option value="Mens">Mens</option>
+            <option value="Boys">Boys</option>
+            <option value="Girls">Girls</option>
+          </select>
         </div>
 
         <label className="font-semibold text-m" htmlFor="type"> Type of clothing </label>
@@ -76,6 +76,5 @@ export default async function Donate() {
         </button>
       </form>
     </div>
-    </main>
   )
 }

@@ -1,16 +1,16 @@
-import StaffNavbar from '@/components/StaffNavbar'
-import './globals.css'
+import DonorNavbar from '@/components/DonorNavbar'
+import "@/app/globals.css"
 
 export const metadata = {
   title: 'SustainWear',
   description: 'SustainWear: A Smart Clothes Donation and Sustainability Platform',
 }
 
-export default function RootLayout({ children }) {
+export default function DonorLayout({ children }) {
   return (
     <html lang="en">
       <body className='bg-gray-100'>
-        <StaffNavbar />
+        <DonorNavbar />
         {children}
       </body>
     </html>

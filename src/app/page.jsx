@@ -1,8 +1,10 @@
 import Link from "next/link"
+import DonorNavbar from '@/components/DonorNavbar'
 
 export default function Home() {
   return (
     <main>
+      <DonorNavbar />
       <h1 className="font-bold text-2xl text-center mt-2">Sustain Wear</h1>
       <p className="text-center text-xl">Connecting donors to charity&apos;s since 2024</p>
       <div className="md:flex rounded shadow-md justify-between mx-40 gap-4 mt-10 bg-white">
