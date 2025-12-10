@@ -15,17 +15,20 @@ export default async function Donate() {
   }
 
   return (
-<div className="h-screen flex items-center justify-center">
-      <form className="bg-white shadow-md rounded px-8 pt-4 pb-8 w-xl max-w-xs"
+    <main className="max-w-4xl mx-auto px-4 py-8">
+    <h1 className="text-2xl font-semibold mb-6">Donate Clothing Here</h1>
+<div className="flex items-center justify-center">
+      <form className="bg-white shadow-md rounded px-8 pt-4 pb-8 w-2xl max-w-2xl"
         action={addDonation}>
-        <p className="font-semibold text-center text-xl mb-4">Donate clothing here</p>
+          <div className="flex">
         <label className="font-semibold" htmlFor="category">Category of clothing:</label>
-        <select className=" px-1 mb-6 bg-gray-100" name="category" id="category">
+        <select className=" px-2 mb-6 bg-gray-100" name="category" id="category">
           <option value="Womens">Womens</option>
           <option value="Mens">Mens</option>
           <option value="Boys">Boys</option>
           <option value="Girls">Girls</option>
         </select>
+        </div>
 
         <label className="font-semibold text-m" htmlFor="type"> Type of clothing </label>
         <input
@@ -60,7 +63,7 @@ export default async function Donate() {
           name="colour"
           type="text"
           required
-          className="rounded w-full mb-6 bg-gray-100"
+          className="rounded w-full py-2 px-3 mb-6 bg-gray-100"
         />
 
         <label className="font-semibold text-m px-2 mb-4" htmlFor="condition">Condition:</label>
@@ -75,5 +78,6 @@ export default async function Donate() {
         </button>
       </form>
     </div>
+    </main>
   )
 }

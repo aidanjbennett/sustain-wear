@@ -31,7 +31,7 @@ export default async function DonationHistoryPage() {
           You haven&apos;t donated any items yet.
         </p>
       ) : (
-        <div className="overflow-x-auto rounded-lg">
+        <div className="overflow-x-auto rounded-lg shadow-md">
           <table className="min-w-full text-sm">
             <thead className="bg-white shadow-md rounded">
               <tr>

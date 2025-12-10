@@ -1,5 +1,5 @@
+import StaffNavbar from '@/components/StaffNavbar'
 import './globals.css'
-import DonorNavbar from '@/components/DonorNavbar'
 
 export const metadata = {
   title: 'SustainWear',
@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className='bg-gray-100'>
-        <DonorNavbar/>
+        <StaffNavbar />
         {children}
       </body>
     </html>
