@@ -21,9 +21,7 @@ export default function AcceptAndRejectPage() {
 
   const limit = 10;
 
-
   useEffect(() => {
-
 
     const fetchData = async () => {
       const res = await getAcknowledgedDonations(page, limit);

@@ -11,8 +11,7 @@ export async function getAcknowledgedDonations(id) {
 
     revalidatePath('charitystaff/viewdonations');
 
-    return{
+    return {
         acknowledgeDonation
     }
-
 }
