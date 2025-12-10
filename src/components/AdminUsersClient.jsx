@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-const PAGE_SIZE = 30;
 const ROLE_OPTIONS = ["Donor", "Charity Staff", "Admin"];
 
 function toggleOrder(order) {
@@ -26,7 +25,6 @@ export default function AdminUsersClient({
   totalUsers,
   sortBy,
   order,
-  currentAdmin,
 }) {
   const router = useRouter();
   const [usersState, setUsersState] = useState(users);
