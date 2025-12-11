@@ -3,12 +3,12 @@ import { donationFormSchema } from "@/lib/schemas/donation-form";
 
 describe("donationFormSchema", () => {
   const validData = {
-    type: "Clothing",
-    category: "Shirt",
+    type: "Shirt",
+    category: "Mens",
     size: "M",
     brand: "Nike",
     colour: "Red",
-    condition: "New",
+    condition: "Good",
   };
 
   it("accepts valid data", () => {

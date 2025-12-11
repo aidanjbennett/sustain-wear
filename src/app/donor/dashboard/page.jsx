@@ -2,6 +2,7 @@ import ProtectedPage from "@/components/ProtectedRoute";
 import { auth } from "@/lib/auth";
 import { db } from "@/lib/prisma";
 import { headers, cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 export default async function DonorDashboard() {
 
