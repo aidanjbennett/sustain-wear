@@ -1,11 +1,11 @@
 import SignupForm from '@/components/SignupForm'
-import DonorNavbar from '@/components/DonorNavbar'
+import LandingNavbar from '@/components/LandingNavbar'
 
 export default async function Signup() {
 
   return (
     <main>
-      <DonorNavbar />
+      <LandingNavbar />
       <SignupForm />
     </main>
   )

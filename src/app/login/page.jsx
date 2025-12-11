@@ -1,11 +1,11 @@
 import LoginForm from '@/components/LoginForm'
-import DonorNavbar from '@/components/DonorNavbar'
+import LogInNavbar from '@/components/LogInNavbar'
 
 export default async function Login() {
 
     return (
         <>
-            <DonorNavbar />
+            <LogInNavbar />
             <LoginForm />
         </>
     )

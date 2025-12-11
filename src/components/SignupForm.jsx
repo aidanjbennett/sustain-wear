@@ -68,9 +68,9 @@ export default function SignupForm() {
 
   return (
     <>
-      <div className="h-screen flex items-center justify-center bg-gray-100">
+      <div className="h-full flex items-center mt-40 justify-center">
         <form
-          className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-full max-w-xs"
+          className="bg-white shadow-md rounded px-8 pt-6 pb-1 w-full max-w-xs"
           onSubmit={handleSubmit}
         >
           {error && (
@@ -129,9 +129,9 @@ export default function SignupForm() {
             disabled={loading}
             className="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded w-full"
           >
-            {loading ? 'Signing up...' : 'Signup'}
+            {loading ? 'Signing up...' : 'Sign Up'}
           </button>
-          <a href="/login" className="text-xs flex items-center justify-center my-4 text-green-700">Already a member? Login here.</a>
+          <a href="/login" className="text-s flex items-center text-center px-6 py-4 my-4 text-green-700">Already have an account? Log in here.</a>
         </form>
       </div>
     </>
