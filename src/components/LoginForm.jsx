@@ -59,9 +59,9 @@ export default function LoginForm() {
     };
 
     return (
-        <div className="h-screen flex items-center justify-center bg-gray-100">
+        <div className="h-full flex items-center mt-40 justify-center">
             <form onSubmit={handleSubmit}
-                className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-full max-w-xs">
+                className="bg-white shadow-md rounded px-8 pt-6 pb-1 w-full max-w-xs">
                 {error && (
                     <div style={{ color: 'red', marginBottom: '1rem' }}>
                         {error}
@@ -95,7 +95,7 @@ export default function LoginForm() {
                     className="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded w-full">
                     {loading ? "Logging in..." : "Log in"}
                 </button>
-                <a href="/signup" className="text-xs flex items-center justify-center my-4 text-green-700">Not a member yet? Sign up here.</a>
+                <a href="/signup" className="text-s flex items-center justify-center py-4 my-4 text-green-700">Not a member yet? Sign up here.</a>
             </form>
         </div>
     )

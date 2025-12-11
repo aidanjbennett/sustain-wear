@@ -1,6 +1,7 @@
 "use client"
 import Link from 'next/link'
 import { useRouter } from 'next/navigation';
+import { authClient } from '@/lib/auth-client';
 
 export default function DonorNavbar() {
 
@@ -12,7 +13,6 @@ export default function DonorNavbar() {
   }
 
   return (
-
     <nav className="bg-green-700">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
         <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"> SustainWear</span>
@@ -21,13 +21,13 @@ export default function DonorNavbar() {
         </div>
         <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
           <ul>
+            <Link href='/donor/dashboard' className='text-xl font-semibold whitespace-nowrap dark:text-white py-2 px-7 hover:text-gray-200'>Dashboard</Link>
+          </ul>
+          <ul>
             <Link href='/donor/donate' className='text-xl font-semibold whitespace-nowrap dark:text-white py-2 px-7 hover:text-gray-200'>Donate</Link>
           </ul>
           <ul>
             <Link href='/donor/history' className='text-xl font-semibold whitespace-nowrap dark:text-white py-2 px-7 hover:text-gray-200'>History</Link>
-          </ul>
-          <ul>
-            <Link href='/donor/dashboard' className='text-xl font-semibold whitespace-nowrap dark:text-white py-2 px-7 hover:text-gray-200'>Dashboard</Link>
           </ul>
         </div>
       </div>

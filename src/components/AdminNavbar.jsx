@@ -34,18 +34,18 @@ export default function AdminNavbar() {
         >
           <ul>
             <Link
-              href="/admin/viewusers"
-              className="text-xl font-semibold whitespace-nowrap dark:text-white py-2 px-7 hover:text-gray-200"
-            >
-              Users
-            </Link>
-          </ul>
-          <ul>
-            <Link
               href="/admin/dashboard"
               className="text-xl font-semibold whitespace-nowrap dark:text-white py-2 px-7 hover:text-gray-200"
             >
               Dashboard
+            </Link>
+          </ul>
+          <ul>
+            <Link
+              href="/admin/viewusers"
+              className="text-xl font-semibold whitespace-nowrap dark:text-white py-2 px-7 hover:text-gray-200"
+            >
+              Users
             </Link>
           </ul>
         </div>

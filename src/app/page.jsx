@@ -1,12 +1,12 @@
 import Link from "next/link"
-import DonorNavbar from '@/components/DonorNavbar'
+import LandingNavbar from '@/components/LandingNavbar'
 
 export default function Home() {
   return (
     <main>
-      <DonorNavbar />
+      <LandingNavbar />
       <h1 className="font-bold text-2xl text-center mt-2">Sustain Wear</h1>
-      <p className="text-center text-xl">Connecting donors to charity&apos;s since 2024</p>
+      <p className="text-center text-xl">Connecting donors to charities since 2024</p>
       <div className="md:flex rounded shadow-md justify-between mx-40 gap-4 mt-10 bg-white">
         <div className="w-1/2">
           <h2 className="text-center text-2xl underline mb-2">For Donors</h2>
@@ -26,7 +26,7 @@ export default function Home() {
             <li className="text-center my-4 ">Ablity to see donation history</li>
           </ul>
           <div className="flex justify-center mt-20 w-40">
-            <Link href="/signup" className="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded w-full">
+            <Link href="/signup" className="bg-green-700 hover:bg-green-900 text-center text-white font-bold py-2 px-4 rounded w-full">
               Sign up today!
             </Link>
           </div>
