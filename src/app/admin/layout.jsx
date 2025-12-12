@@ -6,9 +6,9 @@ export const metadata = {
   description: 'SustainWear: A Smart Clothes Donation and Sustainability Platform',
 }
 
-export default function RootLayout({ children }) {
+export default function AdminLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body className='bg-gray-100'>
         <AdminNavbar />
         {children}

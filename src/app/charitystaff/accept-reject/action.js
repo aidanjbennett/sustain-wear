@@ -36,6 +36,7 @@ export async function acceptDonation(donationId, charityStaffMemberId) {
       where: { id: donationId },
       data: {
         status: "Accepted",
+        accepted: true,
         charityStaffMemberId: charityStaffMemberId,
         processedAt: new Date()
       }
@@ -54,6 +55,7 @@ export async function rejectDonation(donationId, charityStaffMemberId, rejection
       where: { id: donationId },
       data: {
         status: "Rejected",
+        accepted: false,
         charityStaffMemberId: charityStaffMemberId,
         rejectionReason: rejectionReason,
         processedAt: new Date()
