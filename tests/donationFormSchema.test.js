@@ -21,7 +21,6 @@ describe("donationFormSchema", () => {
       const data = { ...validData, [key]: "" };
       const result = donationFormSchema.safeParse(data);
       expect(result.success).toBe(false);
-      // check that the error is the first one
       const issue = result.error?.issues.find(i => i.path[0] === key);
       expect(issue?.message).toMatch(/cannot be empty/i);
     }
