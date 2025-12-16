@@ -11,10 +11,6 @@ export async function loginAction(email, password) {
         }
     });
 
-    // if (error) {
-    //     return { error: error.message };
-    // }
-
     const authUser = data.user;
 
     const dbUser = await db.user.findUnique({

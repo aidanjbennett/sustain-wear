@@ -6,7 +6,6 @@ import {
   acceptDonation, rejectDonation
 } from "./action";
 import { authClient } from "@/lib/auth-client";
-// import { useRouter } from "next/navigation";
 import ProtectedPage from "@/components/ProtectedRoute";
 
 export default function AcceptAndRejectPage() {

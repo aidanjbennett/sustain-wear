@@ -4,9 +4,6 @@ import { getSessionCookie } from "better-auth/cookies";
 export async function middleware(request) {
 	const sessionCookie = getSessionCookie(request);
 
-	// THIS IS NOT SECURE!
-	// This is the recommended approach to optimistically redirect users
-	// We recommend handling auth checks in each page/route
 	if (!sessionCookie) {
 		return NextResponse.redirect(new URL("/signup", request.url));
 	}
@@ -15,5 +12,5 @@ export async function middleware(request) {
 }
 
 export const config = {
-	matcher: ["/dashboard"], // Specify the routes the middleware applies to
+	matcher: ["/dashboard"],
 };
