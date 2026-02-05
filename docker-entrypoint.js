@@ -11,6 +11,7 @@ const env = { ...process.env }
     const url = new URL(process.env.DATABASE_URL)
     const target = url.protocol === 'file:' && url.pathname
     await exec('npx prisma migrate deploy')
+    // await exec('npx prisma generate')
     await exec('npx next build --experimental-build-mode generate')
   }
 
