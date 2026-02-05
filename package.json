@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "test": "vitest"
+    "test": "vitest",
+    "migrate:prod": "prisma migrate deploy",
+    "prisma:generate": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^6.18.0",
@@ -20,6 +22,7 @@
   },
   "devDependencies": {
     "@eslint-react/eslint-plugin": "^2.1.1",
+    "@flydotio/dockerfile": "^0.7.10",
     "@tailwindcss/postcss": "^4",
     "@vitejs/plugin-react": "^5.1.2",
     "@vitest/browser-preview": "^4.0.15",
