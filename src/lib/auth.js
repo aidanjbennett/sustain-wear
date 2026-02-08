@@ -24,6 +24,6 @@ export const auth = betterAuth({
     },
   },
 
-  trustedOrigins: ["http://localhost:3000"],
+  trustedOrigins: ["http://localhost:3000", "sustain-wear-production.up.railway.app"],
   plugins: [nextCookies()]
 });
